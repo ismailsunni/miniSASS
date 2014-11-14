@@ -135,13 +135,19 @@ class Observations(models.Model, DirtyFieldsMixin):
     comment = models.CharField(max_length=255, blank=True)
     obs_date = models.DateField()
     flag = models.CharField(max_length=5, choices=FLAG_CATS, default='dirty', blank=False)
-    water_clarity = models.DecimalField(max_digits=8, decimal_places=1, blank=True)
-    water_temp = models.DecimalField(max_digits=5, decimal_places=1, blank=True)
-    ph = models.DecimalField(max_digits=4, decimal_places=1, blank=True)
-    diss_oxygen = models.DecimalField(max_digits=8, decimal_places=2, blank=True)
-    diss_oxygen_unit = models.CharField(max_length=8, choices=UNIT_DO_CATS, default='mgl', blank=True)
-    elec_cond = models.DecimalField(max_digits=8, decimal_places=2, blank=True)
-    elec_cond_unit = models.CharField(max_length=8, choices=UNIT_EC_CATS, default='mSm', blank=True)
+    water_clarity = models.DecimalField(max_digits=8, decimal_places=1,
+                                        blank=True, null=True)
+    water_temp = models.DecimalField(max_digits=5, decimal_places=1,
+                                     blank=True, null=True)
+    ph = models.DecimalField(max_digits=4, decimal_places=1, blank=True, null=True)
+    diss_oxygen = models.DecimalField(max_digits=8, decimal_places=2,
+                                      blank=True, null=True)
+    diss_oxygen_unit = models.CharField(max_length=8, choices=UNIT_DO_CATS,
+                                        default='mgl', blank=True, null=True)
+    elec_cond = models.DecimalField(max_digits=8, decimal_places=2,
+                                    blank=True, null=True)
+    elec_cond_unit = models.CharField(max_length=8, choices=UNIT_EC_CATS,
+                                      default='mSm', blank=True, null=True)
     objects = models.GeoManager()
 
     class Meta:
@@ -190,13 +196,19 @@ class ArchivedObservations(models.Model, DirtyFieldsMixin):
     comment = models.CharField(max_length=255, blank=True)
     obs_date = models.DateField()
     flag = models.CharField(max_length=5, choices=FLAG_CATS, default='dirty', blank=False)
-    water_clarity = models.DecimalField(max_digits=8, decimal_places=1, blank=True)
-    water_temp = models.DecimalField(max_digits=5, decimal_places=1, blank=True)
-    ph = models.DecimalField(max_digits=4, decimal_places=1, blank=True)
-    diss_oxygen = models.DecimalField(max_digits=8, decimal_places=2, blank=True)
-    diss_oxygen_unit = models.CharField(max_length=8, choices=UNIT_DO_CATS, default='mgl', blank=True)
-    elec_cond = models.DecimalField(max_digits=8, decimal_places=2, blank=True)
-    elec_cond_unit = models.CharField(max_length=8, choices=UNIT_EC_CATS, default='mSm', blank=True)
+    water_clarity = models.DecimalField(max_digits=8, decimal_places=1,
+                                        blank=True, null=True)
+    water_temp = models.DecimalField(max_digits=5, decimal_places=1,
+                                     blank=True, null=True)
+    ph = models.DecimalField(max_digits=4, decimal_places=1, blank=True, null=True)
+    diss_oxygen = models.DecimalField(max_digits=8, decimal_places=2,
+                                      blank=True, null=True)
+    diss_oxygen_unit = models.CharField(max_length=8, choices=UNIT_DO_CATS,
+                                        default='mgl', blank=True, null=True)
+    elec_cond = models.DecimalField(max_digits=8, decimal_places=2,
+                                    blank=True, null=True)
+    elec_cond_unit = models.CharField(max_length=8, choices=UNIT_EC_CATS,
+                                      default='mSm', blank=True, null=True)
     objects = models.GeoManager()
 
     class Meta:
